@@ -51,18 +51,19 @@ class _MyButtonState extends State<MyButton> {
           setState(() {
             state = 2;
           });
+          AudioPlayer().play(AssetSource('music/correct.mp3'));
           context.read<MainCubit>().resultCorrect();
-          Timer(const Duration(milliseconds: 300), () {
+          Timer(const Duration(milliseconds: 500), () {
             setState(() {
               state = 1;
             });
           });
         } else {
-          AudioCache();
+          AudioPlayer().play(AssetSource('music/error.mp3'));
           setState(() {
             state = 3;
           });
-          Timer(const Duration(milliseconds: 300), () {
+          Timer(const Duration(milliseconds: 500), () {
             setState(() {
               state = 1;
             });
@@ -70,15 +71,22 @@ class _MyButtonState extends State<MyButton> {
         }
       }),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(5.0),
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 200),
-          color: containerColor,
+          decoration: BoxDecoration(color: containerColor, boxShadow: const [
+            BoxShadow(
+                color: Colors.black,
+                blurStyle: BlurStyle.solid,
+                blurRadius: 5,
+                spreadRadius: 2,
+                offset: Offset(3, 3)),
+          ]),
           child: Center(
               child: Expanded(
                   child: Text(
             widget.number.toString(),
-            style: const TextStyle(fontSize: 60),
+            style: const TextStyle(fontSize: 85),
           ))),
         ),
       ),

@@ -6,19 +6,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'main_state.dart';
 
 class MainCubit extends Cubit<MainState> {
-  MainCubit() : super(MainState(false, 4));
+  MainCubit() : super(MainState(false, 4, true));
 
   var numberGiraffe = 4;
 
   void start() {
-    emit(MainState(false, Random().nextInt(9) + 1));
+    emit(MainState(false, Random().nextInt(9) + 1, Random().nextBool()));
   }
 
   void resultCorrect() {
-    emit(MainState(true, 0));
+    emit(MainState(true, 0, false));
 
-    Timer(const Duration(milliseconds: 300), () {
-      emit(MainState(false, Random().nextInt(9) + 1));
+    Timer(const Duration(milliseconds: 1000), () {
+      emit(MainState(false, Random().nextInt(9) + 1, Random().nextBool()));
     });
   }
 }
