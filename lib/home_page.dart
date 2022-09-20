@@ -37,7 +37,9 @@ class _HomePageState extends State<HomePage> {
                                 return const Center(child: Elephant());
                               } else {
                                 return Giraffes(
-                                    numberGiraffes: state.numberGiraffes, isGiraffe: state.isGiraffe,);
+                                  numberGiraffes: state.numberGiraffes,
+                                  isGiraffe: state.isGiraffe,
+                                );
                               }
                             }),
                           ),

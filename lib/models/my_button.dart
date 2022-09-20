@@ -23,6 +23,9 @@ class _MyButtonState extends State<MyButton> {
   var state = 1;
   @override
   Widget build(BuildContext context) {
+    final currentHeight = MediaQuery.of(context).size.height;
+    final fontSize = currentHeight ~/ 10;
+
     switch (state) {
       case 2:
         setState(() {
@@ -52,7 +55,7 @@ class _MyButtonState extends State<MyButton> {
             state = 2;
           });
           AudioPlayer().play(AssetSource('music/correct.mp3'));
-          context.read<MainCubit>().resultCorrect();
+          context.read<MainCubit>().resultCorrect(widget.numberGiraffes);
           Timer(const Duration(milliseconds: 500), () {
             setState(() {
               state = 1;
@@ -86,7 +89,7 @@ class _MyButtonState extends State<MyButton> {
               child: Expanded(
                   child: Text(
             widget.number.toString(),
-            style: const TextStyle(fontSize: 85),
+            style: TextStyle(fontSize: fontSize.toDouble()),
           ))),
         ),
       ),

@@ -14,10 +14,10 @@ class MainCubit extends Cubit<MainState> {
     emit(MainState(false, Random().nextInt(9) + 1, Random().nextBool()));
   }
 
-  void resultCorrect() {
-    emit(MainState(true, 0, false));
+  void resultCorrect(number) {
+    emit(MainState(true, number, false));
 
-    Timer(const Duration(milliseconds: 1000), () {
+    Timer(const Duration(milliseconds: 2600), () {
       emit(MainState(false, Random().nextInt(9) + 1, Random().nextBool()));
     });
   }
