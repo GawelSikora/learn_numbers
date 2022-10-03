@@ -11,7 +11,7 @@ class _Background extends State<Background> {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-        itemCount: 2,
+        itemCount: 3,
         gridDelegate:
             const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1),
         itemBuilder: ((context, index) {

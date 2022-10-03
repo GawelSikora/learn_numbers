@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
                               } else {
                                 return Giraffes(
                                   numberGiraffes: state.numberGiraffes,
-                                  isGiraffe: state.isGiraffe,
+                                  animal: state.animal,
                                 );
                               }
                             }),
