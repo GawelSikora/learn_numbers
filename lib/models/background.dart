@@ -10,12 +10,20 @@ class Background extends StatefulWidget {
 class _Background extends State<Background> {
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-        itemCount: 3,
-        gridDelegate:
-            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1),
-        itemBuilder: ((context, index) {
-          return Expanded(child: Image.asset('assets/grass.jpg'));
-        }));
+    final currenWidth = MediaQuery.of(context).size.width;
+
+    return ListView(
+      physics: const NeverScrollableScrollPhysics(),
+      children: [
+        Image.asset(
+          'assets/grass.jpg',
+          width: currenWidth,
+        ),
+        Image.asset(
+          'assets/grass.jpg',
+          width: currenWidth,
+        )
+      ],
+    );
   }
 }

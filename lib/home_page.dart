@@ -28,77 +28,70 @@ class _HomePageState extends State<HomePage> {
                 Column(
                   children: [
                     Expanded(
-                        flex: 6,
-                        child: SizedBox(
-                          child: Padding(
-                            padding: const EdgeInsets.all(12.0),
-                            child: Builder(builder: (context) {
-                              if (state.isCorrect) {
-                                return const Center(child: Elephant());
-                              } else {
-                                return Giraffes(
-                                  numberGiraffes: state.numberGiraffes,
-                                  animal: state.animal,
-                                );
-                              }
-                            }),
-                          ),
-                        )),
-                    Expanded(
+                      flex: 6,
+                      child: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Builder(builder: (context) {
+                          if (state.isCorrect) {
+                            return const Center(child: Elephant());
+                          } else {
+                            return Giraffes(
+                              numberGiraffes: state.numberGiraffes,
+                              animal: state.animal,
+                            );
+                          }
+                        }),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Expanded(
                         flex: 5,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: SizedBox(
-                              child: Column(
-                            children: [
-                              Expanded(
-                                child: Row(
-                                  children: [
-                                    MyButton(
-                                        number: 7,
-                                        numberGiraffes: state.numberGiraffes),
-                                    MyButton(
-                                        number: 8,
-                                        numberGiraffes: state.numberGiraffes),
-                                    MyButton(
-                                        number: 9,
-                                        numberGiraffes: state.numberGiraffes),
-                                  ],
-                                ),
-                              ),
-                              Expanded(
-                                child: Row(
-                                  children: [
-                                    MyButton(
-                                        number: 4,
-                                        numberGiraffes: state.numberGiraffes),
-                                    MyButton(
-                                        number: 5,
-                                        numberGiraffes: state.numberGiraffes),
-                                    MyButton(
-                                        number: 6,
-                                        numberGiraffes: state.numberGiraffes),
-                                  ],
-                                ),
-                              ),
-                              Expanded(
-                                child: Row(
-                                  children: [
-                                    MyButton(
-                                        number: 1,
-                                        numberGiraffes: state.numberGiraffes),
-                                    MyButton(
-                                        number: 2,
-                                        numberGiraffes: state.numberGiraffes),
-                                    MyButton(
-                                        number: 3,
-                                        numberGiraffes: state.numberGiraffes),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          )),
-                        )),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                MyButton(
+                                    number: 7,
+                                    numberGiraffes: state.numberGiraffes),
+                                MyButton(
+                                    number: 8,
+                                    numberGiraffes: state.numberGiraffes),
+                                MyButton(
+                                    number: 9,
+                                    numberGiraffes: state.numberGiraffes),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                MyButton(
+                                    number: 4,
+                                    numberGiraffes: state.numberGiraffes),
+                                MyButton(
+                                    number: 5,
+                                    numberGiraffes: state.numberGiraffes),
+                                MyButton(
+                                    number: 6,
+                                    numberGiraffes: state.numberGiraffes),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                MyButton(
+                                    number: 1,
+                                    numberGiraffes: state.numberGiraffes),
+                                MyButton(
+                                    number: 2,
+                                    numberGiraffes: state.numberGiraffes),
+                                MyButton(
+                                    number: 3,
+                                    numberGiraffes: state.numberGiraffes),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ],

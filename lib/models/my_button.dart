@@ -26,6 +26,9 @@ class _MyButtonState extends State<MyButton> {
     final currentHeight = MediaQuery.of(context).size.height;
     final fontSize = currentHeight ~/ 10;
 
+    final currentWidth = MediaQuery.of(context).size.width;
+    final boxWidth = currentWidth ~/ 3.5;
+
     switch (state) {
       case 2:
         setState(() {
@@ -47,8 +50,7 @@ class _MyButtonState extends State<MyButton> {
         });
     }
 
-    return Expanded(
-        child: GestureDetector(
+    return GestureDetector(
       onTap: (() {
         if (widget.number == widget.numberGiraffes) {
           setState(() {
@@ -73,26 +75,28 @@ class _MyButtonState extends State<MyButton> {
           });
         }
       }),
-      child: Padding(
-        padding: const EdgeInsets.all(5.0),
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
-          decoration: BoxDecoration(color: containerColor, boxShadow: const [
-            BoxShadow(
-                color: Colors.black,
-                blurStyle: BlurStyle.solid,
-                blurRadius: 5,
-                spreadRadius: 2,
-                offset: Offset(3, 3)),
-          ]),
-          child: Center(
-              child: Expanded(
-                  child: Text(
-            widget.number.toString(),
-            style: TextStyle(fontSize: fontSize.toDouble()),
-          ))),
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(5.0),
+          child: AnimatedContainer(
+            width: boxWidth.toDouble(),
+            duration: const Duration(milliseconds: 200),
+            decoration: BoxDecoration(color: containerColor, boxShadow: const [
+              BoxShadow(
+                  color: Colors.black,
+                  blurStyle: BlurStyle.solid,
+                  blurRadius: 5,
+                  spreadRadius: 2,
+                  offset: Offset(3, 3)),
+            ]),
+            child: Center(
+                child: Text(
+              widget.number.toString(),
+              style: TextStyle(fontSize: fontSize.toDouble()),
+            )),
+          ),
         ),
       ),
-    ));
+    );
   }
 }

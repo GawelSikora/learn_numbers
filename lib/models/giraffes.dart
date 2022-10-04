@@ -16,9 +16,6 @@ class Giraffes extends StatefulWidget {
 class _GiraffesState extends State<Giraffes> {
   @override
   Widget build(BuildContext context) {
-    final currentHeight = MediaQuery.of(context).size.height;
-    final fontSize = currentHeight ~/ 5;
-
     var animal = Animal.flamingo;
     animal = widget.animal;
     var imageAsset = '';
@@ -50,19 +47,20 @@ class _GiraffesState extends State<Giraffes> {
         break;
     }
 
-    return Expanded(
-      child: GridView.builder(
-          itemCount: widget.numberGiraffes,
-          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: fontSize.toDouble(),
-          ),
-          itemBuilder: ((context, index) {
-            return Padding(
-              padding: const EdgeInsets.all(1.0),
-              child: Expanded(child: Image.asset(imageAsset)),
-            );
-          })),
-    );
+    return GridView.builder(
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: widget.numberGiraffes,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+        ),
+        itemBuilder: ((context, index) {
+          return Padding(
+            padding: const EdgeInsets.all(1.0),
+            child: Image.asset(
+              imageAsset,
+            ),
+          );
+        }));
   }
 }
 
