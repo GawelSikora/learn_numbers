@@ -43,10 +43,10 @@ class _HomePageState extends State<HomePage> {
                         }),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Expanded(
-                        flex: 5,
+                    Expanded(
+                      flex: 5,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
                         child: Column(
                           children: [
                             Row(
